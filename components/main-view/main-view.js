@@ -19,6 +19,29 @@ const Main = () => {
 
   const [focusInput, setFocusInput] = useState('#7e7e7e');
 
+  const questionsTest = [
+    {
+      _id: 1,
+      question: 'Test Question 1',
+      answer: '',
+    },
+    {
+      _id: 2,
+      question: 'Test Question 2',
+      answer: 'Test Answer 2',
+    },
+    {
+      _id: 3,
+      question: 'Test Question 3',
+      answer: '',
+    },
+    {
+      _id: 4,
+      question: 'Test Question 4',
+      answer: 'Test Answer 4',
+    },
+  ];
+
   const truncate = input =>
     input.length > 100 ? (
       <View className="truncate-text-container">
@@ -121,7 +144,7 @@ const Main = () => {
             </View>
           </View>
           <View>
-            {questions.map(q => {
+            {questionsTest.map(q => {
               return (
                 <View
                   key={q._id}
@@ -130,7 +153,7 @@ const Main = () => {
                   <View className="question-container">
                     <View className="question">
                       <Text>Q: </Text>
-                      {truncate(q.question)}
+                      <Text>{truncate(q.question)}</Text>
                     </View>
                     <View className="answer">
                       <Text>A: </Text>
@@ -139,7 +162,7 @@ const Main = () => {
                           Open to add an answer
                         </Text>
                       ) : (
-                        truncate(q.answer)
+                        <Text>{truncate(q.answer)}</Text>
                       )}
                     </View>
                   </View>
